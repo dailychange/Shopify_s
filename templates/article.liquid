@@ -1,7 +1,7 @@
 <div class="yes-container">
   <div class="article-one">
 
-    <img src ={{article.image}}>
+    <img src="{{ article.image | img_url: 'medium' }}" alt="{{ article.title }}">
     <h1 class="article-title-two">{{ article.title }}</h1>
     <h2 class="article-date-three">{{ article.published_at | date: "%B %d, %Y" }}</h2>
     <p class="article-author-four">{{ article.author }}</p>
