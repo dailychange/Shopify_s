@@ -1,0 +1,12 @@
+ <header class="site-header">
+  <!-- <h1>Coding with Imminent</h1>  -->
+  <!-- {{ shop.name }} -->
+  <div class="header-content">
+    <div class="logo">AmarTheme!</div>
+    <ul class="main-menu">
+      {% for link in linklists.main-menu.links %}
+        <li>{{ link.title | link_to: link.url }}</li>
+      {% endfor %}
+    </ul>
+  </div> 
+</header>

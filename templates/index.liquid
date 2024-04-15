@@ -1,0 +1,10 @@
+<main class="site-content">
+<!--<h2>{{ collections['frontpage'].title }}</h2>-->
+<!--{{ //'demo.jpg' | asset_url }}-->
+<!-- <img src="{{ 'demo.jpg' | asset_url }}" width="250" height="250"> -->
+<div class="product-grid">
+  {% for product in collections['frontpage'].products %}
+    {% render 'product.item', product: product %}
+  {% endfor %}
+</div>
+</main>
