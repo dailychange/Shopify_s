@@ -1,23 +1,27 @@
+<div class="collection-header">
+  <h1>{{ collection.title }}</h1>
 
-<h1>{{ collection.title }}</h1>
+  <select id="sort-by">
+    {% assign sort_by = collection.sort_by | default: collection.default_sort_by %}
+  
+    {% for option in collection.sort_options %}
+      <option value="{{ option.value }}" {% if option.value == sort_by %}selected="selected"{% endif %}>
+        {{ option.name }}
+      </option>
+    {% endfor %}
+  </select> 
+</div>
 
-<select id="sort-by">
-  {% assign sort_by = collection.sort_by | default: collection.default_sort_by %}
-
-  {% for option in collection.sort_options %}
-    <option value="{{ option.value }}" {% if option.value == sort_by %}selected="selected"{% endif %}>
-      {{ option.name }}
-    </option>
-  {% endfor %}
-</select>
-
-{% paginate collection.products by 4 %}
-  {% for product in collection.products %}
-   {% render 'product.item', product:product %}
-  {% endfor %}
-  {{ paginate | default_pagination }}
-{% endpaginate %}
-
+<div class="product-grid">
+  {% paginate collection.products by 6 %} 
+    {% for product in collection.products %} 
+     {% render 'product.item', product:product %}
+    {% endfor %}
+    <div class="pagination-container">
+      {{ paginate | default_pagination }}
+    </div>
+  {% endpaginate %}
+</div>
 
 <script>
   Shopify.queryParams = {};
