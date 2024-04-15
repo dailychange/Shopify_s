@@ -1,34 +1,43 @@
-<h1>{{article.title}}</h1>
+<div class="yes-container">
+  <div class="article-one">
 
-<h2>{{ article.published_at | date: "%B %d, %Y" }}</h2>
-<p>{{article.author}}</p>
-<div>{{article.excerpt}}</div>
-<div>{{article.content}}</div>
-
-{% if article.comments_enabled? %}
-<h2> Leave the comment </h2>
-{% for comment in article.comments %}
-<h2>{{comment.name}}</h2>
-<p>{{comment.email}}</p> 
-<div>{{comment.content}}</div>
-{% endfor %}
-
-{% form 'new_comment', article %}
-{{ form.errors | default_errors }}
-	<div class="name">
-    <label for="name">Name</label>
-    <input type="text" name="comment[author]" value="{{ form.author }}">
-     </div>
-
-  <div class="email">
-    <label for="email">Email</label>
-    <input type="email" name="comment[email]" value="{{ form.email }}">
+    <img src ={{article.image}}>
+    <h1 class="article-title-two">{{ article.title }}</h1>
+    <h2 class="article-date-three">{{ article.published_at | date: "%B %d, %Y" }}</h2>
+    <p class="article-author-four">{{ article.author }}</p>
+    <div class="article-excerpt-five">{{ article.excerpt }}</div>
+    <div class="article-content-six">{{ article.content }}</div>
   </div>
 
-  <div class="comment">
-    <label for="comment">Comment</label>
-    <textarea name="comment[body]">{{ form.body }}</textarea>
-  </div>
-<button type="submit">Add comment</button>
-{% endform %}
-{% endif %}
+  {% if article.comments_enabled? %}
+    <div class="comment">
+      <h2 class="comment-title">Leave a Comment</h2>
+      {% for comment in article.comments %}
+        <div class="comment-item">
+          <h3 class="comment-name">{{ comment.name }}</h3>
+          <p class="comment-email">{{ comment.email }}</p>
+          <div class="comment-content">{{ comment.content }}</div>
+        </div>
+      {% endfor %} 
+
+      <div class="comment-form">
+        {% form 'new_comment', article %}
+          {{ form.errors | default_errors }}
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" name="comment[author]" value="{{ form.author }}">
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" name="comment[email]" value="{{ form.email }}">
+          </div>
+          <div class="form-group">
+            <label for="comment">Comment</label>
+            <textarea name="comment[body]">{{ form.body }}</textarea>
+          </div>
+          <button type="submit" class="submit-button">Add Comment</button>
+        {% endform %}
+      </div>
+    </div>
+  {% endif %}
+</div>
