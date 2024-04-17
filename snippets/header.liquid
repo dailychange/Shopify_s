@@ -3,8 +3,12 @@
   <!-- <h1>Coding with Imminent</h1>  -->
   <!-- {{ shop.name }} -->
   <div class="header-content">
-    <div class="logo">AmarTheme!</div>
-    <ul class="main-menu">
+    <a href="https://mohalistores.myshopify.com/" class="yaresay">
+    <div class="logo" style="width: 50px;"> 
+    <img src="https://cdn.shopify.com/s/files/1/0698/3876/6330/files/Screenshot_3-removebg-preview_2_1.png?v=1713350230">
+    Amar</div>
+    </a>
+    <ul class="main-menu">  
       {% for link in linklists.main-menu.links %}
         <li>{{ link.title | link_to: link.url }}</li>
       {% endfor %}
