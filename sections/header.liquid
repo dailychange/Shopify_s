@@ -1,0 +1,46 @@
+
+<header class="site-header">
+  <!-- <h1>Coding with Imminent</h1>  -->
+  <!-- {{ shop.name }} -->
+  <div class="header-content">
+    <a href="https://mohalistores.myshopify.com/" class="yaresay">
+    <div class="logo" style="width: 50px;"> 
+    <img src="https://cdn.shopify.com/s/files/1/0698/3876/6330/files/Screenshot_3-removebg-preview_2_1.png?v=1713350230">
+    Amar</div>
+    </a>
+    <ul class="main-menu">  
+      {% for link in linklists.main-menu.links %}
+        <li>{{ link.title | link_to: link.url }}</li>
+      {% endfor %}
+    </ul>
+    <div class="cart-icon">
+      <a href="/cart">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+          <path fill="yellow" d="M0 0h24v24H0z"/>
+          <path d="M7.5 17c-.276 0-.5-.224-.5-.5s.224-.5.5-.5h9c.276 0 .5.224.5.5s-.224.5-.5.5h-9zM7 9v5.499c0 .275.225.501.5.501h9c.275 0 .5-.226.5-.501V9h2v6.5c0 1.378-1.122 2.5-2.5 2.5h-9C5.121 18 4 16.878 4 15.5V9h2zm11-9h-3c0-1.654-1.346-3-3-3s-3 1.346-3 3H3v2h18V2z"/>
+        </svg>
+      </a>
+      <div class="cart-count">{{ cart.item_count }}</div>
+    </div>
+  </div> 
+</header> 
+
+{% schema %}
+{
+ "name": "Header",
+ "settings" : [
+    {
+        "type": "checkbox",
+        "id": "show_search",
+        "label": "Show search form?"
+    },
+    { 
+        "type": "color",
+        "id": "bg",
+        "label": "Background Color"
+    }
+
+ ]
+}
+{% endschema %}
+   

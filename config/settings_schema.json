@@ -1,11 +1,41 @@
 [
-    {
-      "name": "theme_info",
-      "theme_name": "amartheme",
-      "theme_author": "Shopify",
-      "theme_version": "1.0.0",
-      "theme_documentation_url": "https:\/\/help.shopify.com\/manual\/online-store\/themes\/os20\/themes-by-shopify\/dawn",
-      "theme_support_url": "https:\/\/mohalistores.shopify.com\/"
-    }
-  ] 
-  
+  {
+    "name": "Colors",
+    "settings": [
+      {
+        "type": "color",
+        "id": "bg",
+        "label": "Background color",
+        "default": "#ffffff"
+      },
+      {
+        "type": "color", 
+        "id": "text_color",
+        "label": "Text color",
+        "default": "#000000"
+      }
+    ]
+  },
+  {
+    "name": "Settings",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "show_search",
+        "label": "Show search form?",
+        "default": true
+      },
+      {
+        "type": "range",
+        "id": "font_size",
+        "min": 12,
+        "max": 24,
+        "step": 1,
+        "unit": "px",
+        "label": "Font size",
+        "default": 16
+      }
+    ]
+  }
+]
+

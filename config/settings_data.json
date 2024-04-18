@@ -1,6 +1,0 @@
-{
-  "type": "checkbox",
-  "id": "show_announcement",
-  "label": "Show announcement",
-  "default": true
-}
